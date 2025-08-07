@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
 body {
@@ -11,20 +11,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-.game-wrapper {
-  text-align: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .board {
   display: grid;
   gap: 4px;
   margin: 20px auto;
-  width: 200px;            
-  height: 200px;
-  
+}
+
+.board.fixed-size{
+  width: 300px;
+  height: 300px;
+}
+
+.board.fullscreen{
+  width: 90vw;            
+  height: 90vw;
 }
 
 
@@ -57,9 +61,6 @@ body {
   border-radius: 6px;
 }
 
-button.active {
-  /*background-color: #1a8;*/
-}
 
 .status {
   margin-top: 15px;

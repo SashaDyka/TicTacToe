@@ -38,6 +38,14 @@ class TicTacToe{
         boardElement.style.gridTemplateColumns = `repeat(${this.currentSize}, 1fr)`;
         boardElement.style.gridTemplateRows = `repeat(${this.currentSize}, 1fr)`;
 
+        if(this.currentSize <= 7){
+            boardElement.classList.add('fixed-size');
+            boardElement.classList.remove('fullscreen');
+        }else{
+            boardElement.classList.add('fullscreen');
+            boardElement.classList.remove('fixed-size');
+        }
+        
         for(let row=0; row < this.currentSize; row++){
             for(let column=0; column < this.currentSize; column++){
                 const cell = document.createElement('div');
