@@ -4,10 +4,23 @@
   box-sizing: border-box;
 }
 
+:root{
+  --color-body: #222;
+  --color-text-light: #fff;
+  --color-text-dark: #000000;
+
+  --color-cell: #f38e8e;
+  --color-border-cell: #999;
+
+  --color-button-dark: #444;
+  --color-button-light:#ebebeb;
+  
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #222;
-  color: #fff;
+  background-color: var(--color-body);
+  color: var(--color-text-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,8 +46,8 @@ body {
 
 
 .cell {
-  background-color: #f38e8e;
-  border: 1px solid #999;
+  background-color: var(--color-cell);
+  border: 1px solid var(--color-border);
   font-size: 24px;
   font-weight: bold;
   display: flex;
@@ -54,8 +67,8 @@ body {
   margin: 5px;
   padding: 10px 20px;
   border: none;
-  background-color: #444;
-  color: white;
+  background-color: var(--color-button-dark);
+  color: var(--color-text-light);
   cursor: pointer;
   font-size: 16px;
   border-radius: 6px;
@@ -71,8 +84,8 @@ body {
   margin: 15px;
   padding: 7px 60px;
   border: none;
-  background-color: #ebebeb;
-  color: rgb(0, 0, 0);
+  background-color: var(--color-button-light);
+  color: var(--color-text-dark);
   cursor: pointer;
   font-size: 18px;
   border-radius: 6px;
