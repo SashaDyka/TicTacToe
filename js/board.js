@@ -38,7 +38,7 @@
     }
 
     checkBoardSize(){
-        if(this.currentSize >= 7){
+        if(this.currentSize <= 7){
             this.boardElement.classList.add('fixed-size');
             this.boardElement.classList.remove('fullscreen');            
         }else {
@@ -54,9 +54,6 @@
     }
 
 
-    setStyleBoard(){
-        this.boardElement.classList.add('board-color-set');
-    }
 
 }
 

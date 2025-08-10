@@ -1,4 +1,4 @@
-import { Board } from "./board";
+import { Board } from "./board.js";
 
 const gameBoard = document.getElementById('gameBoard');
 const statusText = document.getElementById('status');
@@ -12,4 +12,4 @@ const enlargeBtn = document.getElementById('enlargeBtn');
 
 
 const game = new Board(gameBoard);
-game.renderBoard();
+game.renderBoard(); 
