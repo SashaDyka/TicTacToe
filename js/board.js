@@ -1,4 +1,4 @@
-class Board{
+export class Board{
     constructor(boardElement){
         this.boardElement = boardElement;
         this.allSizes = [3, 5, 7, 20, 50, 100];
@@ -18,7 +18,7 @@ class Board{
     }
 
 
-    drowBoard(){
+    drawBoard(){
         this.boardElement.innerHTML = '';
         this.boardElement.style.gridAutoColumns = `repeat(${this.currentSize}, 1fr)`;
         this.boardElement.style.gridAutoRows = `repeat(${this.currentSize}, 1fr)`;
@@ -49,6 +49,6 @@ class Board{
 
     renderBoard(){
         this.checkBoardSize(); 
-        this.drowBoard();      
+        this.drawBoard();      
     }
 }
