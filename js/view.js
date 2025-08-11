@@ -68,6 +68,19 @@ export default class boardView{
         }
     }
 
+
+    /* Event listeners */
+    onCellClick(handler) {
+        this.boardElement.addEventListener('click', (event) => {
+            if (event.target.classList.contains('cell')) {
+                const row = parseInt(event.target.dataset.row, 10);
+                const col = parseInt(event.target.dataset.column, 10);
+                handler(row, col);
+            }
+        });
+    }
+
+    
    
 
     
