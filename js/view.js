@@ -1,35 +1,43 @@
 class boardView{
     constructor(elements){
-        this.boardElement = boardElement;
-        this.statusText = statusText;
-        this.chooseXBtn = chooseXBtn;
-        this.chooseOBtn = chooseOBtn;
-        this.undoBtn = undoBtn;
-        this.resetBtn = resetBtn;
-        this.reduceBtn = reduceBtn;
-        this.enlargeBtn = enlargeBtn; 
+        this.boardElement = elements.boardElement;
+        this.statusText = elements.statusText;
+
+        this.chooseXBtn = elements.chooseXBtn;
+        this.chooseOBtn = elements.chooseOBtn;
+
+        this.undoBtn = elements.undoBtn;
+        this.resetBtn = elements.resetBtn;
+        this.reduceBtn = elements.reduceBtn;
+        this.enlargeBtn = elements.enlargeBtn; 
               
     }
 
-    drawBoard(size){
-        this.currentSize = size;
+    drawBoard(cells){
+        const size = cells.length; 
         this.boardElement.innerHTML = '';
 
         this.boardElement.style.gridTemplateColumns = `repeat(${this.currentSize}, 1fr)`;
         this.boardElement.style.gridTemplateRow = `repeat(${this.currentSize}, 1fr)`;
 
-        for(let row=0; row < this.currentSize; row++){
-            for(let column=0; column < this.currentSize; column++){
+        cells.forEach((row, rowIndex) => {
+            row.forEach((cellContent, colIndex) => {
                 const cell = document.createElement('div');
                 cell.classList.add('cell');
                 
-                cell.dataset.row = row;
-                cell.dataset.column = column;
-                cell.addEventListener('click', () => this.handleClick(row, column));  /*move to game class*/
+                cell.dataset.row = rowIndex;
+                cell.dataset.column = colIndex;
+                cell.textContent = cellContent;
+                
                 this.boardElement.appendChild(cell);
-            }
-        }
+            });
+        });
     }
+
+
+
+
+
 
     handleClick(row, column) {
         if (!this.gameActive || this.board[row][column]) {
@@ -80,7 +88,7 @@ class boardView{
             cell.textContent = '';
         }
     }
-    
+
     enlargeBoardSize() {
         if (this.currentSizeIndex < this.ollSizes.length - 1) {
             this.currentSizeIndex++;
