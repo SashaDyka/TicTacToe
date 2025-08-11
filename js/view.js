@@ -1,4 +1,4 @@
-class boardView{
+export default class boardView{
     constructor(elements){
         this.boardElement = elements.boardElement;
         this.statusText = elements.statusText;

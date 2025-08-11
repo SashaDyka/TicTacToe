@@ -1,4 +1,4 @@
-class Player {
+export default class Player {
   constructor(symbol) {
     this.symbol = symbol;
   }
@@ -7,3 +7,4 @@ class Player {
     return this.symbol;
   }
 }
+/*add save wins*/

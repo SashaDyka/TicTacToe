@@ -1,4 +1,4 @@
- export class Board{
+ export default class Board{
     constructor(){
         this.size = size;
         this.cells = this._createBoard(size);
@@ -51,10 +51,5 @@
 
 
 
-
-
 }
 
- /*this.allBoardSizes = [3, 5, 7, 20, 50, 100];
-        this.currentSizeIndex = 0;
-        this.maxSize = 100;*/
