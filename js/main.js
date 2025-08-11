@@ -1,15 +1,25 @@
-import { Board } from "./board.js";
+import Board from './board.js';
+import View from './view.js';
+import Player from './player.js';
+import Game from './game.js';
 
-const gameBoard = document.getElementById('gameBoard');
-const statusText = document.getElementById('status');
-const chooseX = document.getElementById('chooseX');
-const chooseO = document.getElementById('chooseO');
+document.addEventListener('DOMContentLoaded', () => {
+    const elements = {
+        boardElement: document.getElementById('board'),
+        statusText: document.querySelector('.status'),
+        chooseXBtn: document.getElementById('chooseX'),
+        chooseOBtn: document.getElementById('chooseO'),
+        undoBtn: document.getElementById('undoBtn'),
+        resetBtn: document.getElementById('resetBtn'),
+        reduceBtn: document.getElementById('reduceBtn'),
+        enlargeBtn: document.getElementById('enlargeBtn'),
+    };
+    const game = new Game(elements);
+    game.renderBoard(); 
+});
 
-const undoBtn = document.getElementById('undoBtn');
-const resetBtn = document.getElementById('resetBtn');
-const reduceBtn = document.getElementById('reduceBtn');
-const enlargeBtn = document.getElementById('enlargeBtn');
 
 
-const game = new Board(gameBoard);
-game.renderBoard(); 
+
+
+
