@@ -6,34 +6,43 @@
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="styles/style.css">
 
-  <link rel="icon" href="images/logo-icon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/logo-icon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/logo-icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/logo-icon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <h1>Tic Tac Toe</h1>
+  <h1>Tic Tac Toe</h1>
 
-    <div class="player-select">
-      <button id="chooseX" class="active">Play as ❌</button>
-      <button id="chooseO">Play as ⭘</button>
-    </div>
+  <div class="player-select">
+    <button id="chooseX" class="active">Play as ❌</button>
+    <button id="chooseO">Play as ⭘</button>
+  </div>
 
-    <div id="gameBoard" class="board"></div>
+  <div class="win-select">
+    <div>Wins X: <span id="winsX">0</span></div>
+    <div>Wins O: <span id="winsO">0</span></div>
+  </div>
 
-    <div class="controls">
-      <button id="undoBtn">Cancel</button>
-      <button id="resetBtn">Restart</button>
-    </div>
+  <div id="gameBoard" class="board"></div>
 
-    <div id="status" class="status">Move: ❌</div>
+  <div class="controls">
+    <button id="undoBtn">Cancel</button>
+    <button id="resetBtn">Restart</button>
+  </div>
 
-    <div class="button-sizes">
-      <button id="reduceBtn">-</button>
-      <button id="enlargeBtn">+</button>    
-    </div>
+  <div id="status" class="status">Move: ❌</div>
 
+  <div class="button-sizes">
+    <button id="reduceBtn">-</button>
+    <button id="enlargeBtn">+</button>    
+  </div>
 
-  <script src="script.js"></script>
+  <div class="points-for-win">
+    <label for="winLengthInput">Symbol for winning:</label>
+    <input type="number" id="winLengthInput" min="3" max="100" value="3" />
+  </div>
+
+  <script type="module" src="js/main.js"></script>   
   
 </body>
 </html>
