@@ -16,6 +16,7 @@ export default class GameController{
         this.currentPlayer = this.playerX;
         this.gameActive = false;
 
+        this.history = [];
 
         /* Add Event listeners from View */
         this.view.onCellClick((row, col) => this.handleCellClick(row, col));
@@ -31,9 +32,12 @@ export default class GameController{
      
     startGame(){
         this.board.clearBoard();
+        this.history = [];
         this.currentPlayer = this.playerX;
         this.gameActive = true;
         this.view.drawBoard(this.board.getCells());  
+        this.view.updateStatus(`Player ${this.currentPlayer.getSymbol()} walk`);
+        this.view.checkBoardSize(this.board.getSize());
     }
 
 
