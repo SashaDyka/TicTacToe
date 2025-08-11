@@ -121,10 +121,20 @@ export default class GameController{
 
     resetGame() {
         this.currentPlayer = null; 
-        this.gameActive = false; 
+        this.gameActive = false;
+        this.history = [];
+        this.board.clearBoard();
+        this.view.drawBoard(this.board.getCells());
+        this.view.updateStatus('Game reset.'); 
     }
 
-    
+    getPlayerBySymbol(symbol) {
+        if (symbol === this.playerX.getSymbol()) {
+            return this.playerX;
+        } else {
+            return this.playerO;
+        }
+    }
 
 
 }
