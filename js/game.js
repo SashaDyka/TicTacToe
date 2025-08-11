@@ -55,18 +55,51 @@ export default class GameController{
         this.board.setSize(newSize);
         this.startGame();
     }
-                    
-    
-
-
+                
 
     handleCellClick(row, col){
+        if (!this.gameActive) return;
 
+        if (this.board.isCellEmpty(row, col)) {
+            const symbol = this.currentPlayer.getSymbol();
+            this.board.addSymbol(row, col, symbol);
+            this.history.push({ row, col, symbol });
+
+            this.view.updateCell(row, col, symbol);
+
+            const winnerSymbol = this.board.checkWinner(3);    // if requiredToWin = 3
+            if (winnerSymbol) {
+                this.gameActive = false;
+                this.getPlayerBySymbol(winnerSymbol).addWin();
+                this.view.updateStatus(`Player ${winnerSymbol} won!`);  
+                return;
+            }
+
+            if (this.board.isBoardFull()) {
+                this.gameActive = false;
+                this.view.updateStatus('Tie!');
+                return;
+            }
+
+            this.switchPlayer();
+            this.view.updateStatus(`Player ${this.currentPlayer.getSymbol()} walk`);
+        }
     }
 
     switchPlayer() {
+        this.currentPlayer = this.currentPlayer === this.playerX ? this.playerO : this.playerX;
+    }
+
+
+    choosePlayer(symbol) {
 
     }
+
+
+    undoLastMove() {
+        
+    }
+
 
 
     resetGame() {
