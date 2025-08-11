@@ -15,8 +15,19 @@ export default class GameController{
 
         this.currentPlayer = this.playerX;
         this.gameActive = false;
-    }
 
+
+        /* Add Event listeners from View */
+        this.view.onCellClick((row, col) => this.handleCellClick(row, col));
+        this.view.onChooseX(symbol => this.choosePlayer(symbol));
+        this.view.onChooseO(symbol => this.choosePlayer(symbol));
+        this.view.onUndo(() => this.undoLastMove());
+        this.view.onReset(() => this.startGame());
+        this.view.onEnlarge(() => this.changeBoardSize(true));
+        this.view.onReduce(() => this.changeBoardSize(false));
+        
+    }
+        
      
     startGame(){
         this.board.clearBoard();
@@ -24,6 +35,13 @@ export default class GameController{
         this.gameActive = true;
         this.view.drawBoard(this.board.getCells());  
     }
+
+
+    changeBoardSize(increase) {
+                    
+    }
+
+
 
     handleCellClick(row, col){
 
@@ -39,20 +57,7 @@ export default class GameController{
         this.gameActive = false; 
     }
 
-    undoLastMove() {
-        if (this.history.length === 0) {
-            return; 
-        }
-
-        if (!this.gameActive) {
-            this.gameActive = true;
-        }
-        
-        const lastMove = this.history.pop(); 
-        const { row, column, symbol } = lastMove;
-
-        this.board[row][column] = null;    
-    }
+    
 
 
 }
