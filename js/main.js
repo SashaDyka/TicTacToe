@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         resetBtn: document.getElementById('resetBtn'),
         reduceBtn: document.getElementById('reduceBtn'),
         enlargeBtn: document.getElementById('enlargeBtn'),
+
+        winsX: document.getElementById('winsX'),
+        winsO: document.getElementById('winsO'),
     };  
     const game = new GameController(elements);
     game.startGame(); 

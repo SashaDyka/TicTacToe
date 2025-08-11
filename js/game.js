@@ -17,6 +17,9 @@ export default class GameController{
         this.gameActive = false;
 
         this.history = [];
+        this.winsXElement = elements.winsX;
+        this.winsOElement = elements.winsO;
+        this.updateWinsDisplay();
 
         /* Add Event listeners from View */
         this.view.onCellClick((row, col) => this.handleCellClick(row, col));
@@ -25,8 +28,7 @@ export default class GameController{
         this.view.onUndoLastMove(() => this.undoLastMove());
         this.view.onResetGame(() => this.startGame());
         this.view.onEnlargeSize(() => this.changeBoardSize(true));
-        this.view.onReduceSize(() => this.changeBoardSize(false));
-        
+        this.view.onReduceSize(() => this.changeBoardSize(false));        
     }
         
      
@@ -56,6 +58,12 @@ export default class GameController{
     }
                 
 
+    updateWinsDisplay() {
+        this.winsXElement.textContent = this.playerX.getWins();
+        this.winsOElement.textContent = this.playerO.getWins();
+    }
+
+
     handleCellClick(row, col){
         if (!this.gameActive) return;
 
@@ -70,6 +78,7 @@ export default class GameController{
             if (winnerSymbol) {
                 this.gameActive = false;
                 this.getPlayerBySymbol(winnerSymbol).addWin();
+                this.updateWinsDisplay();
                 this.view.updateStatus(`Player ${winnerSymbol} won!`);  
                 return;
             }
@@ -91,7 +100,7 @@ export default class GameController{
 
 
     choosePlayer(symbol) {
-        console.log('Выбран игрок:', symbol);
+        console.log('Player selected:', symbol);
         if (symbol === 'X') {
             this.currentPlayer = this.playerX;
         } else if (symbol === 'O') {

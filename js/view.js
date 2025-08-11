@@ -9,8 +9,10 @@ export default class boardView{
         this.undoBtn = elements.undoBtn;
         this.resetBtn = elements.resetBtn;
         this.reduceBtn = elements.reduceBtn;
-        this.enlargeBtn = elements.enlargeBtn; 
-              
+        this.enlargeBtn = elements.enlargeBtn;
+        
+        this.winsX = elements.winsX;
+        this.winsO = elements.winsO;            
     }
 
     drawBoard(cells){
