@@ -1,6 +1,8 @@
 Tic Tac Toe
 
+
 This is a classic game of tic-tac-toe implemented using the Model-View-Controller (MVC) pattern.
+
 
 Technologies:
 
@@ -11,13 +13,16 @@ Technologies:
   -JavaScript (ES6 Modules): All game logic, divided into classes according to the MVC principle.
   
 
+
 Launching the project:
 
 Clone the repository. Open the index.html file in any modern browser.
 
 
+
 Project structure:
-    The project is divided into three main classes, each of which performs its own role:
+
+The project is divided into three main classes, each of which performs its own role:
 
     
   Board.js (Model)
@@ -57,12 +62,13 @@ Project structure:
     
     -Controls the game flow by responding to user actions and updating the state.
     
+
  
 Functionality:
 
   Playing “Tic-tac-toe” on a field of variable size.
   
-  + and - buttons to change the size of the field.
+  "+" and "-" buttons to change the size of the field.
 
   Buttons to select a symbol (X or O).
   
