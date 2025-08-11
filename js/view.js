@@ -35,37 +35,27 @@ export default class boardView{
     }
 
 
+    updateStatus(message) {
+        this.statusText.textContent = message;
+    }
 
-
-
-
-    handleClick(row, column) {
-        if (!this.gameActive || this.board[row][column]) {
-            return;
+    clearCell(row, col) {
+        const cell = this.boardElement.querySelector(`[data-row="${row}"][data-column="${col}"]`);
+        if (cell) {
+            cell.textContent = '';
         }
+    }
 
-        const currentSymbol = this.currentPlayer;
-        this.history.push({ row, column, symbol: currentSymbol });
-
-        this.board[row][column] = currentSymbol;
-        const cell = document.querySelector(`[data-row="${row}"][data-column="${column}"]`);
-        cell.textContent = currentSymbol;
-
-        const winner = this.checkWinner();
-        if (winner) {
-            statusText.textContent = `Player ${winner} won!`;
-            this.gameActive = false;
-            return;
+    updateCell(row, col, symbol) {
+        const cell = this.boardElement.querySelector(`[data-row="${row}"][data-column="${col}"]`);
+        if (cell) {
+            cell.textContent = symbol;
         }
+    }
 
-        if (this.checkTie()) {
-            statusText.textContent = `Tie!`;
-            this.gameActive = false;
-            return;
-        }
-
-        this.currentPlayer = currentSymbol === crossSymbol ? zeroSymbol : crossSymbol;
-        statusText.textContent = `Player ${this.currentPlayer} turn`;
+    
+    clearBoard(){
+        this.boardElement.innerHTML = '';
     }
 
     checkBoardSize(){
@@ -78,29 +68,16 @@ export default class boardView{
         }
     }
 
-    clearBoard(){
-        this.boardElement.innerHTML = '';
+   
+
+    
+
+    enlargeBoardSize(handler) {
+        this.enlargeBtn.addEventListener('click', handler);
     }
 
-    clearCell(row, col) {
-        const cell = this.boardElement.querySelector(`[data-row="${row}"][data-column="${col}"]`);
-        if (cell) {
-            cell.textContent = '';
-        }
-    }
-
-    enlargeBoardSize() {
-        if (this.currentSizeIndex < this.ollSizes.length - 1) {
-            this.currentSizeIndex++;
-            this.drawBoard();
-        }
-    }
-
-    reduceBoardSize(){
-        if(this.currentSizeIndex > 0) {
-        this.currentSizeIndex--;
-        this.drawBoard();
-        }
+    reduceBoardSize(handler){
+        this.reduceBtn.addEventListener('click', handler);
     }
 
 
