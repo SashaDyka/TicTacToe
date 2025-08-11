@@ -91,3 +91,10 @@ body {
   font-size: 18px;
   border-radius: 6px;
 }
+
+.win-select{
+  display: flex;
+  font-size: 18px;
+  padding-top: 15px;
+  gap: 20px;
+}
