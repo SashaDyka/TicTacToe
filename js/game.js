@@ -42,8 +42,21 @@ export default class GameController{
 
 
     changeBoardSize(increase) {
-                    
+        if (increase) {
+            if (this.currentSizeIndex < this.allBoardSizes.length - 1) {
+                this.currentSizeIndex++;
+            }
+        } else {
+            if (this.currentSizeIndex > 0) {
+                this.currentSizeIndex--;
+            }
+        }
+        const newSize = this.allBoardSizes[this.currentSizeIndex];
+        this.board.setSize(newSize);
+        this.startGame();
     }
+                    
+    
 
 
 
