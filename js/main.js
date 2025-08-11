@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         winsX: document.getElementById('winsX'),
         winsO: document.getElementById('winsO'),
+        winLengthInput: document.getElementById('winLengthInput'),
     };  
     const game = new GameController(elements);
     game.startGame(); 

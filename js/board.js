@@ -2,7 +2,7 @@
     constructor(size){
         this.size = size; 
         this.cells = this._createBoard(size);
-        this.moveHistory = [];        
+        this.moveHistory = []; 
     }
 
     _createBoard(size) {
@@ -55,7 +55,7 @@
         return this.cells.every(row => row.every(cell => cell !== null));
     }
     
-    checkWinner(requiredToWin = 3) {
+    checkWinner(requiredToWin) {
         const size = this.size; 
         const board = this.cells; 
 

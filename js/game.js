@@ -7,6 +7,7 @@ export default class GameController{
     constructor(elements){
         this.allBoardSizes = [3, 5, 7, 20, 50, 100];
         this.currentSizeIndex = 0;
+        
         this.board = new Board(this.allBoardSizes[this.currentSizeIndex]);
 
         this.view = new boardView(elements);
@@ -21,6 +22,8 @@ export default class GameController{
         this.winsOElement = elements.winsO;
         this.updateWinsDisplay();
 
+        this.requiredToWin = 3;
+
         /* Add Event listeners from View */
         this.view.onCellClick((row, col) => this.handleCellClick(row, col));
         this.view.onChooseX(symbol => this.choosePlayer(symbol));
@@ -28,7 +31,9 @@ export default class GameController{
         this.view.onUndoLastMove(() => this.undoLastMove());
         this.view.onResetGame(() => this.startGame());
         this.view.onEnlargeSize(() => this.changeBoardSize(true));
-        this.view.onReduceSize(() => this.changeBoardSize(false));        
+        this.view.onReduceSize(() => this.changeBoardSize(false));   
+                
+        this.setupWinLengthListener(elements.winLengthInput);
     }
         
      
@@ -74,7 +79,7 @@ export default class GameController{
 
             this.view.updateCell(row, col, symbol);
 
-            const winnerSymbol = this.board.checkWinner(3);    // if requiredToWin = 3
+            const winnerSymbol = this.board.checkWinner(this.requiredToWin);
             if (winnerSymbol) {
                 this.gameActive = false;
                 this.getPlayerBySymbol(winnerSymbol).addWin();
@@ -100,7 +105,6 @@ export default class GameController{
 
 
     choosePlayer(symbol) {
-        console.log('Player selected:', symbol);
         if (symbol === 'X') {
             this.currentPlayer = this.playerX;
         } else if (symbol === 'O') {
@@ -143,6 +147,21 @@ export default class GameController{
         } else {
             return this.playerO;
         }
+    }
+
+    setupWinLengthListener(winLengthInput) {
+        winLengthInput.addEventListener('change', (e) => {
+            let val = parseInt(e.target.value, 10);
+            const boardSize = this.board.getSize();
+
+            if (isNaN(val) || val < 3) val = 3;
+            if (val > boardSize) val = boardSize;
+
+            e.target.value = val;
+            this.requiredToWin = val;
+            console.log('requiredToWin updated:', this.requiredToWin);  // check
+            this.startGame();
+        });
     }
 
 
