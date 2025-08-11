@@ -92,12 +92,29 @@ export default class GameController{
 
 
     choosePlayer(symbol) {
-
+        if (symbol === 'X') {
+            this.currentPlayer = this.playerX;
+        } else if (symbol === 'O') {
+            this.currentPlayer = this.playerO;
+        }
+        this.startGame();
     }
 
 
     undoLastMove() {
-        
+        if (this.history.length === 0) return;
+
+        if (!this.gameActive) {
+            this.gameActive = true;
+        }
+
+        const lastMove = this.history.pop();
+        this.board.cells[lastMove.row][lastMove.col] = null;
+
+        this.view.updateCell(lastMove.row, lastMove.col, '');
+
+        this.switchPlayer();
+        this.view.updateStatus(`Player ${this.currentPlayer.getSymbol()} walk`);
     }
 
 
