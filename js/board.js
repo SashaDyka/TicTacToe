@@ -1,11 +1,11 @@
  export class Board{
-    constructor(size){
+    constructor(){
         this.size = size;
-        this.cells = this.createBoard(size);
+        this.cells = this._createBoard(size);
         this.moveHistory = [];        
     }
 
-    createBoard(size) {
+    _createBoard(size) {
         return Array.from({ length: size }, () => Array(size).fill(null));
     }
 
@@ -17,42 +17,37 @@
         return this.size;
     }
 
-    setSize(newSize) {
-        this.size = newSize;
-        this.clear();
-    }
-
-
     isCellEmpty(row, col) {
-        return this.cells[row][col] === null;
+        return this.board[row][col] === null;
     }
 
     addSymbol(row, col, symbol) {
         if (this.isCellEmpty(row, col)) {
-        this.cells[row][col] = symbol;
+        this.board[row][col] = symbol;
         return true;
         }
         return false;
     }
 
-    clear() {
-        this.cells = this.createBoard(this.size);
-    }
+    checkWinner(){
 
+    }
+    
+    isBoardFull() {
+
+    }
 
     undoLastMove() {
 
     }
     
-
-    checkWinner(){
-
+    clearBoard() {
+        this.cells = this._createBoard(this.size);
+        this.moveHistory = [];
     }
-
+    
    
-    isBoardFull() {
-
-    }
+    
 
 
 
