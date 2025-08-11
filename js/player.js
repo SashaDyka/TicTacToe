@@ -1,7 +1,7 @@
 export default class Player {
   constructor(symbol) {
     this.symbol = symbol;
-    this.wins = 0;
+    this.wins = this.loadWins();
   }
 
   getSymbol() {
@@ -16,7 +16,18 @@ export default class Player {
     this.wins++;
   }
 
-  resetWins() {
-    this.wins = 0;
+  saveWins() {
+    localStorage.setItem(`ticTacToeWins_${this.symbol}`, this.wins);
   }
+
+  loadWins() {
+    const wins = localStorage.getItem(`ticTacToeWins_${this.symbol}`);
+    if (wins) {
+      return parseInt(wins, 10);
+    }else {
+        return 0;
+      }
+    }
+
+
 }
