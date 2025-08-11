@@ -10,7 +10,8 @@ Launching the project:
 Clone the repository. Open the index.html file in any modern browser.
 
 Project structure:
-    -The project is divided into three main classes, each of which performs its own role:
+    The project is divided into three main classes, each of which performs its own role:
+    
   Board.js (Model)
     -This class is responsible for storing and managing data about the game board.
     -It stores the current state of the board (a two-dimensional array).
@@ -18,11 +19,13 @@ Project structure:
     Player.js (Model)
     -Stores the current symbol.
     -Stores player wins.
+    
   View.js (View)
     -This class is responsible for displaying the interface and interacting with the user.
     -It draws the game board based on data from Board.
     -Listens for clicks on cells and buttons.
     -Displays the game status.
+    
   Game.js (Controller)
     -This class is the “brain” of the game and connects Board and View.
     -Contains game logic (checking for wins, changing players).
