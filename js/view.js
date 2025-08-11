@@ -80,18 +80,29 @@ export default class boardView{
         });
     }
 
-    
-   
+    onChooseX(handler) {
+        this.chooseXBtn.addEventListener('click', () => handler('X'));
+    }
 
-    
+    onChooseO(handler) {
+        this.chooseOBtn.addEventListener('click', () => handler('O'));
+    }
 
-    enlargeBoardSize(handler) {
+    onUndoLastMove(handler) {
+        this.undoBtn.addEventListener('click', handler);
+    }
+
+    onResetGame(handler) {
+        this.resetBtn.addEventListener('click', handler);
+    }
+
+    onEnlargeSize(handler) {
         this.enlargeBtn.addEventListener('click', handler);
     }
 
-    reduceBoardSize(handler){
+    onReduceSize(handler) {
         this.reduceBtn.addEventListener('click', handler);
     }
-
+    
 
 }
