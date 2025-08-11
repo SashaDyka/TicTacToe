@@ -1,5 +1,7 @@
 import Board from './board.js';
-import View from './view.js';
+import boardView from './view.js';
+import Player from './player.js';
+
 
 export default class GameController{
     constructor(elements){
@@ -7,11 +9,11 @@ export default class GameController{
         this.currentSizeIndex = 0;
         this.board = new Board(this.allBoardSizes[this.currentSizeIndex]);
 
-        this.view = new BoardView(elements);
+        this.view = new boardView(elements);
         this.playerX = new Player('X');  
         this.playerO = new Player('O');
 
-        this.currentPlayer = null;
+        this.currentPlayer = this.playerX;
         this.gameActive = false;
     }
 

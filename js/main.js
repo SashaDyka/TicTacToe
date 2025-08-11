@@ -5,7 +5,7 @@ import Game from './game.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const elements = {
-        boardElement: document.getElementById('board'),
+        boardElement: document.getElementById('gameBoard'),
         statusText: document.querySelector('.status'),
         chooseXBtn: document.getElementById('chooseX'),
         chooseOBtn: document.getElementById('chooseO'),
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         enlargeBtn: document.getElementById('enlargeBtn'),
     };
     const game = new Game(elements);
-    game.renderBoard(); 
+    game.startGame(); 
 });
 
 

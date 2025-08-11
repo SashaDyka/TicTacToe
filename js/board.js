@@ -1,6 +1,6 @@
  export default class Board{
-    constructor(){
-        this.size = size;
+    constructor(size){
+        this.size = size; 
         this.cells = this._createBoard(size);
         this.moveHistory = [];        
     }

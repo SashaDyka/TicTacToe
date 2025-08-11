@@ -17,8 +17,8 @@ export default class boardView{
         const size = cells.length; 
         this.boardElement.innerHTML = '';
 
-        this.boardElement.style.gridTemplateColumns = `repeat(${this.currentSize}, 1fr)`;
-        this.boardElement.style.gridTemplateRow = `repeat(${this.currentSize}, 1fr)`;
+        this.boardElement.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+        this.boardElement.style.gridTemplateRow = `repeat(${size}, 1fr)`;
 
         cells.forEach((row, rowIndex) => {
             row.forEach((cellContent, colIndex) => {

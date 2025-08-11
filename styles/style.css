@@ -32,6 +32,9 @@ body {
   display: grid;
   gap: 4px;
   margin: 20px auto;
+
+  width: 300px;
+  height: 300px;
 }
 
 .board.fixed-size{
