@@ -1,11 +1,11 @@
  export default class Board{
     constructor(size){
         this.size = size; 
-        this.cells = this.createBoard(size);
+        this.cells = this._createBoard(size);
         this.moveHistory = [];        
     }
 
-    createBoard(size) {
+    _createBoard(size) {
         return Array.from({ length: size }, () => Array(size).fill(null));
     }
 
@@ -19,12 +19,12 @@
 
     setSize(newSize) {
         this.size = newSize;
-        this.cells = this.createBoard(newSize); 
+        this.cells = this._createBoard(newSize); 
         this.moveHistory = [];
     }
 
     isCellEmpty(row, col) {
-        return this.board[row][col] === null;
+        return this.cells[row][col] === null;
     }
 
     addSymbol(row, col, symbol) {

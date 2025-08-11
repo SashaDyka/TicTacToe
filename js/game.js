@@ -22,10 +22,10 @@ export default class GameController{
         this.view.onCellClick((row, col) => this.handleCellClick(row, col));
         this.view.onChooseX(symbol => this.choosePlayer(symbol));
         this.view.onChooseO(symbol => this.choosePlayer(symbol));
-        this.view.onUndo(() => this.undoLastMove());
-        this.view.onReset(() => this.startGame());
-        this.view.onEnlarge(() => this.changeBoardSize(true));
-        this.view.onReduce(() => this.changeBoardSize(false));
+        this.view.onUndoLastMove(() => this.undoLastMove());
+        this.view.onResetGame(() => this.startGame());
+        this.view.onEnlargeSize(() => this.changeBoardSize(true));
+        this.view.onReduceSize(() => this.changeBoardSize(false));
         
     }
         
@@ -33,7 +33,6 @@ export default class GameController{
     startGame(){
         this.board.clearBoard();
         this.history = [];
-        this.currentPlayer = this.playerX;
         this.gameActive = true;
         this.view.drawBoard(this.board.getCells());  
         this.view.updateStatus(`Player ${this.currentPlayer.getSymbol()} walk`);
@@ -92,6 +91,7 @@ export default class GameController{
 
 
     choosePlayer(symbol) {
+        console.log('Выбран игрок:', symbol);
         if (symbol === 'X') {
             this.currentPlayer = this.playerX;
         } else if (symbol === 'O') {

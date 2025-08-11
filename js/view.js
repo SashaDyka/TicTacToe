@@ -58,8 +58,8 @@ export default class boardView{
         this.boardElement.innerHTML = '';
     }
 
-    checkBoardSize(){
-        if(this.currentSize <= 7){
+    checkBoardSize(boardCurrentSize){
+        if(boardCurrentSize <= 7){
             this.boardElement.classList.add('fixed-size');
             this.boardElement.classList.remove('fullscreen');            
         }else {

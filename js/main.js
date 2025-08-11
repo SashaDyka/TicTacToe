@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         resetBtn: document.getElementById('resetBtn'),
         reduceBtn: document.getElementById('reduceBtn'),
         enlargeBtn: document.getElementById('enlargeBtn'),
-    };
+    };  
     const game = new GameController(elements);
     game.startGame(); 
 });
