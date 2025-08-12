@@ -3,7 +3,6 @@ import View from './view.js';
 import Player from './player.js';
 import GameController from './game.js';
 
-document.addEventListener('DOMContentLoaded', () => {
     const elements = {
         boardElement: document.getElementById('gameBoard'),
         statusText: document.getElementById('status'),
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };  
     const game = new GameController(elements);
     game.startGame(); 
-});
+
 
 
 
